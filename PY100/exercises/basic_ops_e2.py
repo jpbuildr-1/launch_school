@@ -1,0 +1,1 @@
+# Use the REPL and the arithmetic operators to extract the individual digits of 4936
