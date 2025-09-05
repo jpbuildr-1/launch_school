@@ -10,5 +10,11 @@ def all_caps(string):
 	else:
 		return string
 
+def all_caps_ternary(string):
+	return (string.upper() if len(string) > 10 else string)
+
 print(all_caps('hello world'))
 print(all_caps('goodbye'))
+
+print(all_caps_ternary('hello world'))
+print(all_caps_ternary('goodbye'))
