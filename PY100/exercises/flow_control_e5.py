@@ -4,4 +4,4 @@ def is_list_empty(my_list):
 	else:
 		print('Empty')
 
-is_list_empty([])
+is_list_empty([]) # 'Empty'
