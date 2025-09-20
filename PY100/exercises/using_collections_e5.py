@@ -11,6 +11,6 @@ print('31415'.isdigit()) 		# True, all are numbers
 print('-31415'.isdigit()) 		# False, - is not a number
 print('31_415'.isdigit()) 		# False, _ is not a number
 print('3.1415'.isdigit()) 		# False, . is not a number
-print(''.isspace())				# False, an empty string sx'' is not a space
+print(''.isspace())				# False, an empty string '' is not a space
 
 # What will the following code print?
