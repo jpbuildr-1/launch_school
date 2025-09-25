@@ -10,8 +10,24 @@ upper_names = []
 # 	index += 1
 
 # For loop example
-for name in names:
-	upper_name = name.upper()
-	upper_names.append(upper_name)
+# for name in names:
+# 	upper_name = name.upper()
+# 	upper_names.append(upper_name)
 
-print(upper_names) # ['CHRIS', 'MAX', 'KARIS', 'VICTOR']
+# print(upper_names) # ['CHRIS', 'MAX', 'KARIS', 'VICTOR']
+
+# Exclude Max
+for name in names:
+	# Via conditional search for 'Max'
+	# if name == 'Max':
+	# 	continue
+
+	# upper_name = name.upper()
+	# upper_names.append(upper_name)
+
+	# Via conditional search for not 'Max'
+	if name != 'Max':
+		upper_name = name.upper()
+		upper_names.append(upper_name)
+
+print(upper_names) # ['CHRIS', 'KARIS', 'VICTOR']
