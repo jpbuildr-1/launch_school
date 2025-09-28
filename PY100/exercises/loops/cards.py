@@ -11,3 +11,9 @@ for suit in suits:
 		deck.append(card)
 
 print(deck)
+
+# List comprehension example
+deck = [ f'{rank} of {suit}'
+		 for suit in suits
+		 for rank in ranks ]
+print(deck)
