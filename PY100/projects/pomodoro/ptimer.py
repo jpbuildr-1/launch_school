@@ -29,7 +29,7 @@ while start_timer == "Y":
 		pygame.mixer.music.play()
 
 	# Timer
-	time.sleep(10)
+	time.sleep(1500)
 
 	start = False
 
