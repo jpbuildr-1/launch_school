@@ -34,7 +34,7 @@ def pomodoro():
 			pygame.mixer.music.play()
 
 		# Timer
-		time.sleep(5)
+		time.sleep(1500)
 
 		start = False
 
@@ -66,7 +66,7 @@ def short_break():
 			pygame.mixer.music.play()
 
 		# Timer
-		time.sleep(5)
+		time.sleep(300)
 
 		start = False
 
