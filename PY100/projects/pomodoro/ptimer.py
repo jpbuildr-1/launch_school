@@ -21,6 +21,7 @@ import pygame
 def pomodoro():
 	# Sets a variable to check for conditional
 	start_timer = input("Start the 25 minute pomodoro? (Y / N) ")
+	print(time.time())
 
 	# Check if user wants to start timer
 	while start_timer == "Y":
