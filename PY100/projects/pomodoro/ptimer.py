@@ -10,7 +10,7 @@
 """
 python3 -m venv venv
 source venv/bin/activate
-pip install pygame # might not be needed
+pip install pygame # needed since you need to install pygame in virtual environment
 """
 # You can use "deactivate"
 
