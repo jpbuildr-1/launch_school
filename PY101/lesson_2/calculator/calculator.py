@@ -14,38 +14,54 @@ def invalid_number(number_str):
         return True
     return False
 
-prompt('Welcome to Calculator!')
+def additional_calculation(answer):
+	"""Checks user input to perform another calculation"""
+	prompt("Would you like to perform another calculation? (y / n)")
+	answer = input().lower()
+	return answer
 
-prompt("Whats the first number?")
-number1 = input()
+def user_prompts():
+	prompt('Welcome to Calculator!')
 
-while invalid_number(number1):
-    prompt("Hmm... that doesn't look like a valid number.")
-    number1 = input()
+	prompt("Whats the first number?")
+	number1 = input()
 
-prompt("What's the second number?")
-number2 = input()
+	while invalid_number(number1):
+		prompt("Hmm... that doesn't look like a valid number.")
+		number1 = input()
 
-while invalid_number(number2):
-    prompt("Hmm... that doesn't look like a valid number.")
-    number2 = input()
+	prompt("What's the second number?")
+	number2 = input()
 
-print('What operation would you like to perform?\n'
-	  '1) Add 2) Subtract 3) Multiply 4) Divide')
-operation = input()
+	while invalid_number(number2):
+		prompt("Hmm... that doesn't look like a valid number.")
+		number2 = input()
 
-while operation not in ['1', '2', '3', '4']:
-    prompt('You must choose 1, 2, 3, or 4')
-    operation = input()
+	print('What operation would you like to perform?\n'
+		'1) Add 2) Subtract 3) Multiply 4) Divide')
+	operation = input()
 
-match operation:
-    case '1':    # '1' represents addition
-        output = int(number1) + int(number2)
-    case '2':    # '2' represents subtraction
-        output = int(number1) - int(number2)
-    case '3':    # '3' represents multiplication
-        output = int(number1) * int(number2)
-    case '4':    # '4' represents division
-        output = int(number1) / int(number2)
+	while operation not in ['1', '2', '3', '4']:
+		prompt('You must choose 1, 2, 3, or 4')
+		operation = input()
 
-prompt(f'The result is: {output}')
+	match operation:
+		case '1':    # '1' represents addition
+			output = int(number1) + int(number2)
+		case '2':    # '2' represents subtraction
+			output = int(number1) - int(number2)
+		case '3':    # '3' represents multiplication
+			output = int(number1) * int(number2)
+		case '4':    # '4' represents division
+			output = int(number1) / int(number2)
+
+	prompt(f'The result is: {output}')
+
+user_prompts()
+
+prompt("Would you like to perform another calculation? (y / n)")
+calculate_again = input().lower()
+
+while calculate_again[0] == "y":
+	user_prompts()
+	calculate_again = additional_calculation(calculate_again)
