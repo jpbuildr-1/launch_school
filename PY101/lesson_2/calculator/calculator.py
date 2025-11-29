@@ -41,11 +41,11 @@ while operation not in ['1', '2', '3', '4']:
 match operation:
     case '1':    # '1' represents addition
         output = int(number1) + int(number2)
-    case '2':  # '2' represents subtraction
+    case '2':    # '2' represents subtraction
         output = int(number1) - int(number2)
-    case '3':  # '3' represents multiplication
+    case '3':    # '3' represents multiplication
         output = int(number1) * int(number2)
-    case '4':  # '4' represents division
+    case '4':    # '4' represents division
         output = int(number1) / int(number2)
 
 prompt(f'The result is: {output}')
