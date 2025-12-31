@@ -4,5 +4,5 @@ print("Hello\nWorld")
 outputs 
 Hello 
 World
-The concept it demonstrates is creating a new line in a string
+The \n is a newline escape character that tells Python to start a new line
 """
