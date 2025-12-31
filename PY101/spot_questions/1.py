@@ -10,6 +10,6 @@ z = x + y # y is implicitly coerced to a float
 
 """
 In the expression, `y` is implicitly coerced to a float so that Python can
-add it to `x`. This is implicit coercion because Python does the conversion
-automatically without us calling something like `float(y)`.
+add a float and an integer together. This is implicit coercion because Python
+does the conversion automatically without us calling something like `float(y)`.
 """
