@@ -15,3 +15,23 @@ c = a
 my_set = {'member1', 'member2'}
 
 print(id(a) == id(b) == id(c)) # False
+
+# Identify the bug. The list should not be mutated.
+lst = [1, 2, 3]
+
+def remove_lst(lst):
+    empty_lst = list(lst) # lst[:]
+
+    for _ in range(len(lst)):
+        empty_lst.pop()
+    
+    print("empty_lst: ", empty_lst)
+    return lst
+
+remove_lst(lst) # []
+print("lst: ", lst) # [1, 2, 3]
+
+"""
+An object is a value in memory
+"""
+a = 1 # 1 is the object or value in meory
