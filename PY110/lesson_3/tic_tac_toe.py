@@ -150,6 +150,18 @@ def play_again():
         answer = input().lower()
     return answer
 
+def choose_square(board, current_player):
+    if current_player == 'player':
+        player_chooses_square(board)
+    elif current_player == 'computer':
+        computer_chooses_square(board)
+
+def alternate_player(current_player):
+    if current_player == 'player':
+        return 'computer'
+    elif current_player == 'computer':
+        return 'player'
+
 def play_tic_tac_toe():
     if MOVES_FIRST == 'choose':
         prompt('Choose who goes first (player, computer)')
@@ -159,24 +171,13 @@ def play_tic_tac_toe():
     score = initialize_score()
     while True:
         board = initialize_board()
-
+        current_player = first
         while True:
             display_board(board, score)
-            if first == 'player':
-                player_chooses_square(board)
-                if someone_won(board) or board_full(board):
-                    break
-                computer_chooses_square(board)
-                if someone_won(board) or board_full(board):
-                    break
-            elif first == 'computer':
-                computer_chooses_square(board)
-                if someone_won(board) or board_full(board):
-                    break
-                display_board(board, score)
-                player_chooses_square(board)
-                if someone_won(board) or board_full(board):
-                    break
+            choose_square(board, current_player)
+            current_player = alternate_player(current_player)
+            if someone_won(board) or board_full(board):
+                break
 
         if someone_won(board):
             keep_score(board, score)
