@@ -93,28 +93,17 @@ def computer_chooses_square(board):
     board[square] = COMPUTER_MARKER
 
 def computer_plays_offense(board):
-    square = None
-    for line in WINNING_LINES:
-        sq1, sq2, sq3 = line
-        immediate_opp = (board[sq1] == COMPUTER_MARKER and board[sq2] == COMPUTER_MARKER and board[sq3] == INITIAL_MARKER) or (board[sq1] == COMPUTER_MARKER and board[sq2] == INITIAL_MARKER and board[sq3] == COMPUTER_MARKER) or (board[sq1] == INITIAL_MARKER and board[sq2] == COMPUTER_MARKER and board[sq3] == COMPUTER_MARKER)
-        if immediate_opp:
-            if board[sq1] == INITIAL_MARKER:
-                square = sq1
-                break
-            elif board[sq2] == INITIAL_MARKER:
-                square = sq2
-                break
-            elif board[sq3] == INITIAL_MARKER:
-                square = sq3
-                break
-    return square
+    return find_winning_or_at_risk_square(board, COMPUTER_MARKER)
 
 def computer_plays_defense(board):
+    return find_winning_or_at_risk_square(board, HUMAN_MARKER)
+
+def find_winning_or_at_risk_square(board, marker):
     square = None
     for line in WINNING_LINES:
         sq1, sq2, sq3 = line
-        immediate_threat = (board[sq1] == HUMAN_MARKER and board[sq2] == HUMAN_MARKER and board[sq3] == INITIAL_MARKER) or (board[sq1] == HUMAN_MARKER and board[sq2] == INITIAL_MARKER and board[sq3] == HUMAN_MARKER) or (board[sq1] == INITIAL_MARKER and board[sq2] == HUMAN_MARKER and board[sq3] == HUMAN_MARKER)
-        if immediate_threat:
+        immediate_threat_opp = (board[sq1] == marker and board[sq2] == marker and board[sq3] == INITIAL_MARKER) or (board[sq1] == marker and board[sq2] == INITIAL_MARKER and board[sq3] == marker) or (board[sq1] == INITIAL_MARKER and board[sq2] == marker and board[sq3] == marker)
+        if immediate_threat_opp:
             if board[sq1] == INITIAL_MARKER:
                 square = sq1
                 break
