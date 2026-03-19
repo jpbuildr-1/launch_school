@@ -37,13 +37,31 @@
     - Dealer wins if card value is greater than player's card value
     - Game is tied if card values are equal
 '''
+import random
 
 def initialize_deck():
     suits = ['spades', 'clubs', 'hearts', 'diamonds']
     card = {'ace': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10, 'jack': 10, 'queen': 10, 'king': 10}
     return {f"{name} of {suit}": [card[name], False] for suit in suits
                       for name in card}
+
+def cards_available(deck):
+    return [name for name in deck
+                 if deck[name][1] == False]
+
+def deal_hand(deck):
+    hand = deal_card(deck) + deal_card(deck)
+    return hand
+
+def deal_card(deck):
+    card = random.choice(cards_available(deck))
+    deck[card][1] = True
+    return [card]
+
 def twenty_one():
     deck = initialize_deck()
+    player_hand = deal_hand(deck)
+    dealer_hand = deal_hand(deck)
+
 
 twenty_one()
