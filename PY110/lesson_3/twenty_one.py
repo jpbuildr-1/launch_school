@@ -3,6 +3,8 @@
     - 52-card deck as a dictionary where key is name of card and 
       value is a nested list where the number value of card is the 1st element
       and a boolean flag used to check if the card has been deal as the 2nd element
+      - suits = spades, clubs, hearts, diamonds
+      - names = ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
 2. Deal cards to player and dealer
     - Initialize the player_hand to an empty dictionary
     - Initialize the dealer_hand to an empty dictionary
@@ -35,3 +37,13 @@
     - Dealer wins if card value is greater than player's card value
     - Game is tied if card values are equal
 '''
+
+def initialize_deck():
+    suits = ['spades', 'clubs', 'hearts', 'diamonds']
+    card = {'ace': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10, 'jack': 10, 'queen': 10, 'king': 10}
+    return {f"{name} of {suit}": [card[name], False] for suit in suits
+                      for name in card}
+def twenty_one():
+    deck = initialize_deck()
+
+twenty_one()
