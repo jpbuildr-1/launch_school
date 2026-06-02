@@ -42,6 +42,8 @@
 - "is-a" relationship
 
 ### The super Function
+- Used to call functions in the superclass
+- Common use case is to use it with the `__init__` method
 
 ### Multiple Inheritance
 
