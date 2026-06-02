@@ -32,6 +32,20 @@
 - **Properties**
 
 
+### Class Inheritance
+
+### The super Function
+
+### Multiple Inheritance
+
+### Mix-Ins
+
+### "Is-a" vs "Has-a"
+
+### Method Resolution Order (MRO)
+
+
+
 **Answering Framework**
 1. Restate the question
 2. Which code lines are being compared and contrasted?
