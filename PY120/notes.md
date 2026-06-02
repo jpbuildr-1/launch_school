@@ -46,6 +46,9 @@
 - Common use case is to use it with the `__init__` method
 
 ### Multiple Inheritance
+- Inherits and combines attributes from multiple superclasses
+- Tricky rules for inherited methods with same names
+- Very hard to implement without vast experience due to tradeoffs
 
 ### Mix-Ins
 
