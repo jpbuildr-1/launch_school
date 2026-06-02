@@ -33,6 +33,13 @@
 
 
 ### Class Inheritance
+- subclass or derived class of superclass
+- superclass or base class of subclass
+- a subclass of a subclass is also a subclass of a superclass
+- a subclass is an instance of a superclass
+- subclasses "inherit" (not really) superclass instances
+- Don't Repeat Yourself
+- "is-a" relationship
 
 ### The super Function
 
