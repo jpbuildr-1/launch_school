@@ -51,12 +51,16 @@
 - Very hard to implement without vast experience due to tradeoffs
 
 ### Mix-Ins
+- Gives small specific behaviors to other classes as an interface
+- Behavior-based helps avoid most of the MI tradeoff
+- Naming convention using `Mixin` as a suffix
 
 ### "Is-a" vs "Has-a"
 
 ### Method Resolution Order (MRO)
 
-
+### Curious
+- Is polymorphism the same as inheritance
 
 **Answering Framework**
 1. Restate the question
