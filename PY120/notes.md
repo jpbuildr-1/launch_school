@@ -60,6 +60,7 @@
 - **has a** or **have a** (composition) are more for classes and mix-ins
 
 ### Method Resolution Order (MRO)
+- Resolution for finding each method call inside a list of superclasses and mix-ins
 
 ### Curious
 - Is polymorphism the same as inheritance
