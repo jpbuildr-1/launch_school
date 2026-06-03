@@ -56,8 +56,8 @@
 - Naming convention using `Mixin` as a suffix
 
 ### "Is-a" vs "Has-a" 
-- **is a** are more for class and instance relationships
-- **has a** or **have a** are more for classes and mix-ins
+- **is a** (inheritance) are more for class and instance relationships
+- **has a** or **have a** (composition) are more for classes and mix-ins
 
 ### Method Resolution Order (MRO)
 
