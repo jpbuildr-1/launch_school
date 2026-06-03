@@ -55,7 +55,9 @@
 - Behavior-based helps avoid most of the MI tradeoff
 - Naming convention using `Mixin` as a suffix
 
-### "Is-a" vs "Has-a"
+### "Is-a" vs "Has-a" 
+- **is a** are more for class and instance relationships
+- **has a** or **have a** are more for classes and mix-ins
 
 ### Method Resolution Order (MRO)
 
