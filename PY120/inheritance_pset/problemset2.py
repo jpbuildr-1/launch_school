@@ -55,3 +55,6 @@ print(dave.speak())                 # bark!
 print(bud.run())                    # running!
 print(bud.sleep())                  # snoring!
 
+
+print([cls.__name__ for cls in Bulldog.mro()])
+# ['Bulldog', 'Dog', 'Pet', 'object']
