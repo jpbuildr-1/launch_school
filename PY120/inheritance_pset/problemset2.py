@@ -27,6 +27,9 @@ class Cat(Pet):
     def speak(self):
         return 'meow!'
 
+    def litter(self):
+        return 'littering!'
+
 pet = Pet()
 dave = Dog()
 bud = Bulldog()
@@ -39,7 +42,13 @@ try:
     kitty.fetch()
 except Exception as exception:
     print(exception.__class__.__name__, exception, "\n")
-    # AttributeError 'Cat' object has not attribute 'fetch'
+    # AttributeError 'Cat' object has no attribute 'fetch'
+
+try:
+    bud.litter()
+except Exception as exception:
+    print(exception.__class__.__name__, exception, "\n")
+    # AttributeError 'Bulldog' object has no attribute 'litter'
 
 print(dave.speak())                 # bark!
 
