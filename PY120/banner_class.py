@@ -20,10 +20,10 @@ class Banner:
         if self.width is None:
             return f"| {self.message} |"
 
-        return f"| {self.message[:self.width].strip()} |"
+        return f"| {self.message[:self.width].center(self.width)} |"
 
     def _content_width(self):
-        return len(self.message) if self.width is None else len(self.message[:self.width].strip())
+        return len(self.message) if self.width is None else self.width
 
 
 # Comments show expected output
