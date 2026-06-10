@@ -1,32 +1,18 @@
-class Person:
-    def __init__(self, name):
-        self.name = name
+class Library:
+    def __init__(self):
+        self.books = []
 
-class Pet:
-    def jump(self):
-        return 'How high?'
+    def add_book(self, book):
+        self.books += [book]
 
-class Dog(Pet):
-    def speak(self):
-        return 'bark!'
+class Book:
+    def __init__(self, title):
+        self.title = title
 
-    def fetch(self):
-        return 'fetching!'
+my_library = Library()
+print(my_library)                           # <__main__.Library objec at 0x...>
 
-class Bulldog(Dog):
-    pass
+book_1 = Book('The Grapes of Wrath')
+my_library.add_book(book_1)
 
-class Cat(Pet):
-    pass
-
-bob = Person('Robert')
-kitty = Cat()
-bud = Bulldog()
-bob.pets = [kitty, bud]
-print(bob.pets)      
-# [<__main__.Cat object at 0x...>
-# <__main__.Bulldog object at 0x...>]
-for pet in bob.pets:
-    print(pet.jump())
-# How high?
-# How high?
+print(my_library.books[0].title)                           # 'The Grapes of Wrath'
