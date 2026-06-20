@@ -18,7 +18,6 @@ CREATE AN OBJECT WITH INSTANCE VARIABLES RANK AND SUIT
 DEFINE DUNDER METHODS STR, GT, LT, EQ
     str returns the object as a string value "rank of suit"
     lt compare self rank with other rank
-    gt compare self rank with other rank
     eq compare self rank with other rank and self suit with other suit
     rank_value property to calculate the integer value of rank
 '''
@@ -40,6 +39,13 @@ class Card:
         'Ace': 14,
         }
 
+    SUIT_VALUES = {
+        'Diamonds': 1,
+        'Hearts': 2,
+        'Clubs': 3,
+        'Spades': 4,
+    }
+
     def __init__(self, rank, suit):
         self.rank = rank
         self.suit = suit
@@ -50,6 +56,8 @@ class Card:
     def __lt__(self, other):
         if not isinstance(other, Card):
             return NotImplemented
+        elif self.rank_value == other.rank_value:
+            return self.suit_value < other.suit_value
         return self.rank_value < other.rank_value
 
     def __eq__(self, other):
@@ -60,6 +68,10 @@ class Card:
     @property
     def rank_value(self):
         return self.RANK_VALUES[self.rank]
+
+    @property
+    def suit_value(self):
+        return self.SUIT_VALUES[self.suit]
 
 cards = [Card(2, 'Hearts'),
          Card(10, 'Diamonds'),
@@ -93,3 +105,5 @@ cards = [Card(8, 'Diamonds'),
          Card(8, 'Spades')]
 print(min(cards).rank == 8)                        # True
 print(max(cards).rank == 8)                        # True
+print(min(cards) == Card(8, 'Diamonds'))           # True
+print(max(cards) == Card(8, 'Spades'))             # True
