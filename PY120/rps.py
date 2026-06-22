@@ -1,16 +1,3 @@
-class RPSGame:
-    def __init__(self):
-        self._human = Player()
-        self._computer = Player()
-
-    def play(self):
-        display_welcome_message()
-        self._human.choose()
-        self._computer.choose()
-        display_winner()
-        display_goodbye_message()
-
-
 class Player:
     def __init__(self):
         # maybe a "name"? what about a "move"?
@@ -34,5 +21,17 @@ class Rule:
     # not sure where "compare" goes yet
     def compare(self, move1, move2):
         pass
+
+class RPSGame:
+    def __init__(self):
+        self._human = Player()
+        self._computer = Player()
+
+    def play(self):
+        display_welcome_message()
+        self._human.choose()
+        self._computer.choose()
+        display_winner()
+        display_goodbye_message()
 
 RSPGame().play()
