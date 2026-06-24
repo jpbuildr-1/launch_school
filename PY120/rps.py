@@ -1,16 +1,37 @@
+import random
+
 class Player:
-    def __init__(self):
-        # maybe a "name"? what about a "move"?
+    CHOICES = ('rock', 'paper', 'scissors')
+
+    def __init__(self, player_type):
+        # maybe a "name"?
         self._player_type = player_type.lower()
+        self.move = None
+
+    def _is_human(self):
+        return self._player_type == 'human'
 
     def choose(self):
-        pass
+        if self._is_human():
+            message = f'Choose {" ".join(Player.CHOICES[:2])} or {Player.CHOICES[2]}: '
+
+            while True:
+                choice = input(message).lower()
+                if choice in Player.CHOICES:
+                    break
+                
+                print(f"{choice} IS AN INVALID RESPONSE")
+            
+            self.move = choice
+            Move(self.move)
+        else:
+            self.move = random.choice(Player.CHOICES)
 
 class Move:
-    def __init__(self):
+    def __init__(self, choice):
         # This seems like we need something to keep track of the choice
         # a move object can be "paper", "rock" or "scissors"
-        pass
+        self.choice = choice
 
 
 class Rule:
@@ -37,7 +58,7 @@ class RPSGame:
         self._display_welcome_message()
         self._human.choose()
         self._computer.choose()
-        display_winner()
+        # display_winner()
         self._display_goodbye_message()
 
 RPSGame().play()
