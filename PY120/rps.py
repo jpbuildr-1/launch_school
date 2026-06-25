@@ -3,27 +3,31 @@ import random
 class Player:
     CHOICES = ('rock', 'paper', 'scissors')
 
-    def __init__(self, player_type):
-        self._player_type = player_type.lower()
+    def __init__(self):
         self.move = None
 
-    def _is_human(self):
-        return self._player_type == 'human'
+class Computer(Player):
+    def __init__(self):
+        super().__init__()
 
     def choose(self):
-        if self._is_human():
-            message = f'Choose {" ".join(Player.CHOICES[:2])} or {Player.CHOICES[2]}: '
+        self.move = random.choice(Player.CHOICES)
 
-            while True:
-                choice = input(message).lower()
-                if choice in Player.CHOICES:
-                    break
-                
-                print(f"{choice} IS AN INVALID RESPONSE")
-            
-            self.move = choice
-        else:
-            self.move = random.choice(Player.CHOICES)
+class Human(Player):
+    def __init__(self):
+        super().__init__()
+
+    def choose(self):
+        prompt = 'Please choose rock, paper, or scissors: '
+
+        while True:
+            choice = input(prompt).lower()
+            if choice.lower() in Player.CHOICES:
+                break
+
+            print(f'Sorry, {choice} is not valid')
+
+        self.move = choice
 
 class Move:
     def __init__(self, choice):
@@ -43,28 +47,37 @@ class Rule:
 
 class RPSGame:
     def __init__(self):
-        self._human = Player('human')
-        self._computer = Player('computer')
+        self._human = Human()
+        self._computer = Computer()
     
     def _display_welcome_message(self):
         print('Welcome to Rock Paper Scissors!')
+
+    def _human_wins(self):
+        human_choice = self._human.move
+        computer_choice = self._computer.move
+
+        return ((human_choice == "rock" and computer_choice == "scissors") or
+                (human_choice == "paper" and computer_choice == "rock") or
+                (human_choice == "scissors" and computer_choice == "paper"))
+
+    def _computer_wins(self):
+        human_choice = self._human.move
+        computer_choice = self._computer.move
+
+        return ((computer_choice == "paper" and human_choice == "rock" ) or
+                (computer_choice == "scissors" and human_choice == "paper") or
+                (computer_choice == "rock" and human_choice == "scissors"))
 
     def _display_winner(self):
         print(f"You chose: {self._human.move}")
         print(f"The computer chose: {self._computer.move}")
 
-        human_choice = self._human.move
-        computer_choice = self._computer.move
-
-        if ((human_choice == "rock" and computer_choice == "scissors") or
-           (human_choice == "paper" and computer_choice == "rock") or
-           (human_choice == "scissors" and computer_choice == "paper")):
+        if self._human_wins():
             print('You win!')
-        elif ((human_choice == "rock" and computer_choice == "paper") or
-             (human_choice == "paper" and computer_choice == "scissors") or
-             (human_choice == "scissors" and computer_choice == "rock")):
+        elif self._computer_wins():
             print('Computer wins!')
-        elif human_choice == computer_choice:
+        else:
             print("It's a tie")
 
     def _display_goodbye_message(self):
