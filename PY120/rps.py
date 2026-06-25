@@ -51,6 +51,24 @@ class RPSGame:
     def _display_welcome_message(self):
         print('Welcome to Rock Paper Scissors!')
 
+    def _display_winner(self):
+        print(f"You chose: {self._human.move}")
+        print(f"The computer chose: {self._computer.move}")
+
+        human_choice = self._human.move
+        computer_choice = self._computer.move
+
+        if ((human_choice == "rock" and computer_choice == "scissors") or
+           (human_choice == "paper" and computer_choice == "rock") or
+           (human_choice == "scissors" and computer_choice == "paper")):
+            print('You win!')
+        elif ((human_choice == "rock" and computer_choice == "paper") or
+             (human_choice == "paper" and computer_choice == "scissors") or
+             (human_choice == "scissors" and computer_choice == "rock")):
+            print('Computer wins!')
+        elif human_choice == computer_choice:
+            print("It's a tie")
+
     def _display_goodbye_message(self):
         print('Thanks for playing Rock Paper Scissors. Goodbye!')
 
@@ -58,7 +76,7 @@ class RPSGame:
         self._display_welcome_message()
         self._human.choose()
         self._computer.choose()
-        # display_winner()
+        self._display_winner()
         self._display_goodbye_message()
 
 RPSGame().play()
