@@ -22,7 +22,6 @@ class Player:
                 print(f"{choice} IS AN INVALID RESPONSE")
             
             self.move = choice
-            Move(self.move)
         else:
             self.move = random.choice(Player.CHOICES)
 
