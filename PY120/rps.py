@@ -4,7 +4,6 @@ class Player:
     CHOICES = ('rock', 'paper', 'scissors')
 
     def __init__(self, player_type):
-        # maybe a "name"?
         self._player_type = player_type.lower()
         self.move = None
 
@@ -72,11 +71,24 @@ class RPSGame:
     def _display_goodbye_message(self):
         print('Thanks for playing Rock Paper Scissors. Goodbye!')
 
+    def _play_again(self):
+        while True:
+            answer = input("Play again? (Y / N) ")
+            if answer.lower().startswith('y') or answer.lower().startswith('n'):
+                break
+            print(f"{answer} is not a valid response. Choose Y or N.")
+        return answer.lower().startswith('y')
+    
     def play(self):
         self._display_welcome_message()
-        self._human.choose()
-        self._computer.choose()
-        self._display_winner()
+
+        while True:
+            self._human.choose()
+            self._computer.choose()
+            self._display_winner()
+            if not self._play_again():
+                break
+
         self._display_goodbye_message()
 
 RPSGame().play()
