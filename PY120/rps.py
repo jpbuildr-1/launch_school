@@ -33,7 +33,7 @@ class RPSGame:
     def __init__(self):
         self._human = Human()
         self._computer = Computer()
-    
+
     def _display_welcome_message(self):
         print('Welcome to Rock Paper Scissors!')
 
@@ -70,11 +70,8 @@ class RPSGame:
     def _play_again(self):
         while True:
             answer = input("Play again? (Y / N) ")
-            if answer.lower().startswith('y') or answer.lower().startswith('n'):
-                break
-            print(f"{answer} is not a valid response. Choose Y or N.")
         return answer.lower().startswith('y')
-    
+
     def play(self):
         self._display_welcome_message()
 
