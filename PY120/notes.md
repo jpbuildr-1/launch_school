@@ -75,4 +75,4 @@
 
 **Interning**
 - Python could use the same memory address for values like integers from -5 to 256
-- This could apply to other value to like strings
+- This could apply to other value to like strings on other immutable objects
