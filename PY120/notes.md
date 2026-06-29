@@ -72,3 +72,7 @@
 4. Compare the options
 5. Add a "What If" Scenario
 6. Answer in 2-4 clear sentences
+
+**Interning**
+- Python could use the same memory address for values like integers from -5 to 256
+- This could apply to other value to like strings
