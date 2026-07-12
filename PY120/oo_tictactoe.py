@@ -1,7 +1,7 @@
 class Square:
     INITIAL_MARKER = " "
     HUMAN_MARKER = "X"
-    COMPUTER_MARKER "O"
+    COMPUTER_MARKER = "O"
 
     def __init__(self, marker=INITIAL_MARKER):
         self.marker = marker
@@ -11,17 +11,7 @@ class Square:
 
 class Board:
     def __init__(self):
-        self.squares = {
-            1: Square(),
-            2: Square(),
-            3: Square("X"), # Testing -- remove "X" later
-            4: Square(),
-            5: Square("O"), # Testing -- remove "O" later
-            6: Square(),
-            7: Square("X"), # Testing -- remove "X" later
-            8: Square(),
-            9: Square(),
-        }
+        self.squares = {square: Square() for square in range(1, 10)}
 
     def display(self):
         print()
