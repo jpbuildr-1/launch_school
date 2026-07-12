@@ -11,7 +11,7 @@ class Square:
 
 class Board:
     def __init__(self):
-        self.squares = {square: Square() for square in range(1, 10)}
+        self.squares = {key: Square() for key in range(1, 10)}
 
     def display(self):
         print()
