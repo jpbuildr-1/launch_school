@@ -16,6 +16,21 @@ class Board:
         #     Numbers? Square objects?
         pass
 
+    def display(self):
+        print()
+        print("       |       |")
+        print("   O   |       |   O")
+        print("       |       |")
+        print("-------+-------+-------")
+        print("       |       |")
+        print("       |   X   |")
+        print("       |       |")
+        print("-------+-------+-------")
+        print("       |       |")
+        print("   X   |       |")
+        print("       |       |")
+        print()
+
 class Row:
     def __init__(self):
         # STUB
@@ -67,16 +82,14 @@ class Computer(Player):
 
 class TTTGame:
     def __init__(self):
-        # STUB
-        # We need a board and two players.
-        pass
+        self.board = Board()
 
     def play(self):
         # SPIKE
         self.display_welcome_message()
 
         while True:
-            self.display_board()
+            self.board.display()
             
             self.first_player_moves()
             if self.is_game_over():
@@ -88,7 +101,7 @@ class TTTGame:
 
             break # Execute loop only once for now
 
-        self.display_board()
+        self.board.display()
         self.display_results()
         self.display_goodbye_message()
 
@@ -102,21 +115,6 @@ class TTTGame:
         # STUB
         # Show the results of thsi game (win, lose, tie).
         pass
-
-    def display_board(self):
-        print()
-        print("       |       |")
-        print("   O   |       |   O")
-        print("       |       |")
-        print("-------+-------+-------")
-        print("       |       |")
-        print("       |   X   |")
-        print("       |       |")
-        print("-------+-------+-------")
-        print("       |       |")
-        print("   X   |       |")
-        print("       |       |")
-        print()
 
     def first_player_moves(self):
         # STUB 
