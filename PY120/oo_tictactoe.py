@@ -7,27 +7,36 @@ class Square:
 
 class Board:
     def __init__(self):
-        # STUB
-        # We need a way to model the 3x3 grid. Perhaps
-        #    "squares"?
-        # What data structure should we use? A list? A
-        #     dictionary? Something else?
-        # What should the data structure store? Strings?
-        #     Numbers? Square objects?
-        pass
+        self.squares = {
+            1: "X",
+            2: " ",
+            3: " ",
+            4: " ",
+            5: "O",
+            6: " ",
+            7: " ",
+            8: " ",
+            9: " ",
+        }
 
     def display(self):
         print()
         print("       |       |")
-        print("   O   |       |   O")
+        print(f"   {self.squares[1]}   |"
+              f"   {self.squares[2]}   |"
+              f"   {self.squares[3]}")
         print("       |       |")
         print("-------+-------+-------")
         print("       |       |")
-        print("       |   X   |")
+        print(f"   {self.squares[4]}   |"
+              f"   {self.squares[5]}   |"
+              f"   {self.squares[6]}")
         print("       |       |")
         print("-------+-------+-------")
         print("       |       |")
-        print("   X   |       |")
+        print(f"   {self.squares[7]}   |"
+              f"   {self.squares[8]}   |"
+              f"   {self.squares[9]}")
         print("       |       |")
         print()
 
