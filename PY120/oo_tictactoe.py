@@ -1,5 +1,9 @@
 class Square:
-    def __init__(self, marker=" "):
+    INITIAL_MARKER = " "
+    HUMAN_MARKER = "X"
+    COMPUTER_MARKER "O"
+
+    def __init__(self, marker=INITIAL_MARKER):
         self.marker = marker
 
     def __str__(self):
