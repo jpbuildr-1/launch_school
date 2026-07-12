@@ -104,9 +104,19 @@ class TTTGame:
         pass
 
     def display_board(self):
-        # STUB
-        # Display the board, including its current state.
-        pass
+        print()
+        print("       |       |")
+        print("   O   |       |   O")
+        print("       |       |")
+        print("-------+-------+-------")
+        print("       |       |")
+        print("       |   X   |")
+        print("       |       |")
+        print("-------+-------+-------")
+        print("       |       |")
+        print("   X   |       |")
+        print("       |       |")
+        print()
 
     def first_player_moves(self):
         # STUB 
