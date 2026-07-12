@@ -19,6 +19,9 @@ class Square:
     def marker(self, marker):
         self._marker = marker
 
+    def is_unused(self):
+        return self.marker == Square.INITIAL_MARKER
+
 class Board:
     def __init__(self):
         self.squares = {key: Square() for key in range(1, 10)}
@@ -46,6 +49,11 @@ class Board:
 
     def mark_square_at(self, key, marker):
         self.squares[key].marker = marker
+
+    def unused_squares(self):
+        return [key 
+                for key, square in self.squares.items()
+                if square.is_unused()]
 
 class Row:
     def __init__(self):
@@ -93,16 +101,12 @@ class TTTGame:
             self.board.display()
             
             self.human_moves()
-            self.board.display()    # so we can see the human's move
             if self.is_game_over():
                 break
 
             self.computer_moves()
-            self.board.display()    # so we can see the computer's move
             if self.is_game_over():
                 break
-
-            break # Execute loop only once for now
 
         self.board.display()
         self.display_results()
@@ -120,12 +124,16 @@ class TTTGame:
         pass
 
     def human_moves(self):
-        choice = None
+        valid_choices = self.board.unused_squares()
+        choices_list = [str(choice) for choice in valid_choices]
+        choices_str = ", ".join(choices_list)
+
         while True:
-            choice = input("Choose a square between 1 and 9: ")
+            prompt = f"Choose a square ({choices_str}): "
+            choice = input(prompt)
             try:
                 choice = int(choice)
-                if 1 <= choice <= 9:
+                if choice in valid_choices:
                     break
             except ValueError:
                 pass
@@ -136,7 +144,8 @@ class TTTGame:
         self.board.mark_square_at(choice, self.human.marker)
 
     def computer_moves(self):
-        choice = random.randint(1, 9)
+        valid_choices = self.board.unused_squares()
+        choice = random.choice(valid_choices)
         self.board.mark_square_at(choice, self.computer.marker)
 
     def is_game_over(self):
