@@ -71,21 +71,17 @@ class Player:
 
 class Human(Player):
     def __init__(self):
-        # STUB
-        # What does a human player need to do? How does it
-        #     differ from the basic Player or a Computer?
-        pass
+        super().__init__()
 
 class Computer(Player):
     def __init__(self):
-        # STUB
-        # What does a computer player need to do? How does it
-        #     differ from the basic Player or a Human?
-        pass
+        super().__init__()
 
 class TTTGame:
     def __init__(self):
         self.board = Board()
+        self.human = Human()
+        self.computer = Computer()
 
     def play(self):
         # SPIKE
@@ -94,11 +90,11 @@ class TTTGame:
         while True:
             self.board.display()
             
-            self.first_player_moves()
+            self.human_moves()
             if self.is_game_over():
                 break
 
-            self.second_player_moves()
+            self.computer_moves()
             if self.is_game_over():
                 break
 
@@ -119,15 +115,11 @@ class TTTGame:
         # Show the results of thsi game (win, lose, tie).
         pass
 
-    def first_player_moves(self):
-        # STUB 
-        # The first player makes a move.
-        pass
+    def human_moves(self):
+        print("human moves")
 
-    def second_player_moves(self):
-        # STUB
-        # The second player makes a move.
-        pass
+    def computer_moves(self):
+        print("computer moves")
 
     def is_game_over(self):
         # STUB
