@@ -1,3 +1,5 @@
+import random
+
 class Square:
     INITIAL_MARKER = " "
     HUMAN_MARKER = "X"
@@ -99,11 +101,12 @@ class TTTGame:
             self.board.display()
             
             self.human_moves()
-            self.board.display()
+            self.board.display()    # so we can see the human's move
             if self.is_game_over():
                 break
 
             self.computer_moves()
+            self.board.display()    # so we can see the computer's move
             if self.is_game_over():
                 break
 
@@ -141,7 +144,8 @@ class TTTGame:
         self.board.mark_square_at(choice, self.human.marker)
 
     def computer_moves(self):
-        print("computer moves")
+        choice = random.randint(1, 9)
+        self.board.mark_square_at(choice, self.computer.marker)
 
     def is_game_over(self):
         # STUB
