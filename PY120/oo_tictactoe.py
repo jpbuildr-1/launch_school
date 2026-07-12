@@ -113,16 +113,18 @@ class TTTGame:
     def first_player_moves(self):
         # STUB 
         # The first player makes a move.
+        pass
 
     def second_player_moves(self):
         # STUB
         # The second player makes a move.
+        pass
 
     def is_game_over(self):
         # STUB
         # We'll start by assuming the game never ends.
         return False
-        
+
 
 game = TTTGame()
 game.play()
