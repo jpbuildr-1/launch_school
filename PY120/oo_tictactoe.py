@@ -9,6 +9,14 @@ class Square:
     def __str__(self):
         return self.marker
 
+    @property
+    def marker(self):
+        return self._marker
+
+    @marker.setter
+    def marker(self, marker):
+        self._marker = marker
+
 class Board:
     def __init__(self):
         self.squares = {key: Square() for key in range(1, 10)}
@@ -34,6 +42,9 @@ class Board:
         print("       |       |")
         print()
 
+    def mark_square_at(self, key, marker):
+        self.squares[key].marker = marker
+
 class Row:
     def __init__(self):
         # STUB
@@ -49,19 +60,16 @@ class Marker:
         pass
 
 class Player:
-    def __init__(self):
-        # STUB
-        # A player is either a human or a computer that is
-        #     playing the game.
-        # Perhaps we need a "marker" to keep track of this
-        #     player's symbol? (i.e., 'X' or 'O')
-        pass
+    def __init__(self, marker):
+        self.marker = marker
 
-    def mark(self):
-        # STUB
-        # We need a way to mark the board with this player's
-        #     marker. How do we access the board?
-        pass
+    @property
+    def marker(self):
+        return self._marker
+
+    @marker.setter
+    def marker(self, value):
+        self._marker = value
 
     def play(self):
         # STUB
@@ -71,11 +79,11 @@ class Player:
 
 class Human(Player):
     def __init__(self):
-        super().__init__()
+        super().__init__(Square.HUMAN_MARKER)
 
 class Computer(Player):
     def __init__(self):
-        super().__init__()
+        super().__init__(Square.COMPUTER_MARKER)
 
 class TTTGame:
     def __init__(self):
@@ -91,6 +99,7 @@ class TTTGame:
             self.board.display()
             
             self.human_moves()
+            self.board.display()
             if self.is_game_over():
                 break
 
@@ -129,7 +138,7 @@ class TTTGame:
             print("Sorry, that's not a valid choice.")
             print()
 
-            # Mark the chosen square with the human's marker.
+        self.board.mark_square_at(choice, self.human.marker)
 
     def computer_moves(self):
         print("computer moves")
