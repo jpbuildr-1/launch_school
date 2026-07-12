@@ -73,12 +73,6 @@ class Player:
     def marker(self, value):
         self._marker = value
 
-    def play(self):
-        # STUB
-        # We need a way for each player to play the game.
-        # Do need access to the board?
-        pass
-
 class Human(Player):
     def __init__(self):
         super().__init__(Square.HUMAN_MARKER)
