@@ -50,7 +50,7 @@ class Board:
               f"   {self.squares[9]}")
         print("       |       |")
         print()
-    
+
     def display_with_clear(self):
         clear_screen()
         print("\n")
@@ -60,7 +60,7 @@ class Board:
         self.squares[key].marker = marker
 
     def unused_squares(self):
-        return [key 
+        return [key
                 for key, square in self.squares.items()
                 if square.is_unused()]
 
@@ -102,7 +102,7 @@ class TTTGame:
         (1, 5, 9),  # diagonal: top-left to bottom-right
         (3, 5, 7),  # diagonal: top-right to bottom-left
     )
-     
+
     def __init__(self):
         self.board = Board()
         self.human = Human()
@@ -114,7 +114,7 @@ class TTTGame:
         self.board.display()
 
         while True:
-            
+
             self.human_moves()
             if self.is_game_over():
                 break
@@ -122,7 +122,7 @@ class TTTGame:
             self.computer_moves()
             if self.is_game_over():
                 break
-            
+
             self.board.display_with_clear()
 
         self.board.display_with_clear()
