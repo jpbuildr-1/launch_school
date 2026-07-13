@@ -1,3 +1,7 @@
+### Useful Commands
+- source ~/.env/my_env/bin/activate
+- ls ~/.env
+
 ### Terminology
  - **Object-Oriented Programming** is used to manage bigger and complicated software
 - **Classes** are the instructions to build different objects of the same **type**
