@@ -109,7 +109,6 @@ class TTTGame:
         self.computer = Computer()
 
     def play(self):
-        # SPIKE
         self.display_welcome_message()
         self.board.display()
 
