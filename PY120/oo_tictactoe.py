@@ -1,4 +1,8 @@
 import random
+import os
+
+def clear_screen():
+    os.system('clear')
 
 class Square:
     INITIAL_MARKER = " "
@@ -46,6 +50,11 @@ class Board:
               f"   {self.squares[9]}")
         print("       |       |")
         print()
+    
+    def display_with_clear(self):
+        clear_screen()
+        print("\n")
+        self.display()
 
     def mark_square_at(self, key, marker):
         self.squares[key].marker = marker
@@ -102,9 +111,9 @@ class TTTGame:
     def play(self):
         # SPIKE
         self.display_welcome_message()
+        self.board.display()
 
         while True:
-            self.board.display()
             
             self.human_moves()
             if self.is_game_over():
@@ -113,13 +122,17 @@ class TTTGame:
             self.computer_moves()
             if self.is_game_over():
                 break
+            
+            self.board.display_with_clear()
 
-        self.board.display()
+        self.board.display_with_clear()
         self.display_results()
         self.display_goodbye_message()
 
     def display_welcome_message(self):
+        clear_screen()
         print("Welcome to Tic Tac Toe!")
+        print()
 
     def display_goodbye_message(self):
         print("Thanks for playing Tic Tac Toe! Goodbye!")
