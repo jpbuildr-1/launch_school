@@ -151,13 +151,27 @@ class TTTGame:
 
         return False
 
-    def human_moves(self):
-        valid_choices = self.board.unused_squares()
-        choices_list = [str(choice) for choice in valid_choices]
-        choices_str = ", ".join(choices_list)
+    @staticmethod
+    def _join_or(valid_choices, separator=', ', conjunction='or'):
+        # Change choices_list to a str
+        str_list = [str(choice) for choice in valid_choices]
 
+        # if the list's length is 1
+        if len(str_list) == 1:
+            return str_list[0]
+        elif len(str_list) == 2:
+            return f"{str_list[0]} {conjunction} {str_list[1]}"
+
+        # initially join the list from 1st element to 2nd to last element
+        initial_str = separator.join(str_list[:-1])
+        # finally join the intially joined elements to the last element with the final join
+        return f"{initial_str}{separator}{conjunction} {str_list[-1]}"
+
+    def human_moves(self):
         while True:
-            prompt = f"Choose a square ({choices_str}): "
+            valid_choices = self.board.unused_squares()
+            choices_list = TTTGame._join_or(valid_choices)
+            prompt = f"Choose a square ({choices_list}): "
             choice = input(prompt)
             try:
                 choice = int(choice)
