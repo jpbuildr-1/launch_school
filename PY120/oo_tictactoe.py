@@ -30,6 +30,9 @@ class Board:
     def __init__(self):
         self.squares = {key: Square() for key in range(1, 10)}
 
+    def reset(self):
+        self.squares = {key: Square() for key in range(1, 10)}
+
     def display(self):
         print()
         print("       |       |")
@@ -110,6 +113,28 @@ class TTTGame:
 
     def play(self):
         self.display_welcome_message()
+
+        while True:
+            self.play_one_game()
+            if not self.play_again():
+                break
+            clear_screen()
+        
+        self.display_goodbye_message()
+
+    def play_again(self):
+        while True:
+            print()
+            answer = input("Play again? (y/n) ").lower()
+            if answer in ['y', 'n']:
+                break
+            else:
+                print("Sorry, that's not a valid choice.")
+
+        return answer == 'y'
+
+    def play_one_game(self):
+        self.board.reset()
         self.board.display()
 
         while True:
@@ -123,10 +148,8 @@ class TTTGame:
                 break
 
             self.board.display_with_clear()
-
         self.board.display_with_clear()
         self.display_results()
-        self.display_goodbye_message()
 
     def display_welcome_message(self):
         clear_screen()
