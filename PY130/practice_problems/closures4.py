@@ -6,7 +6,7 @@ as its argument. Here's an example of how it might be used:
 
 def later(func, arg):
     def run_it():
-        func(arg)
+        return func(arg)
     
     return run_it
 
