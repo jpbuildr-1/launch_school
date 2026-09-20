@@ -220,7 +220,11 @@ class TTTGame:
 
     def computer_moves(self):
         valid_choices = self.board.unused_squares()
-        choice = self.board.choose_square(Square.HUMAN_MARKER) or random.choice(valid_choices)
+        board = self.board
+        choice = (board.get_(Square.COMPUTER_MARKER) or 
+                  board.choose_square(Square.HUMAN_MARKER) or 
+                  random.choice(valid_choices))
+
         self.board.mark_square_at(choice, self.computer.marker)
 
     def is_game_over(self):
